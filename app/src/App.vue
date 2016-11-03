@@ -1,16 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    {{someData}},
-    {{vuexData}}
     <sign-up-panel></sign-up-panel>
-    <input v-model="inputModel">
-    <br>
-    {{inputModel}}
-    <button class="statue" @click="doWork">statue</button>
-
-    <div v-for="(pin, index) in pins">{{index}}, {{pin.src}}</div>
-
 
   </div>
 </template>
@@ -26,7 +16,7 @@ module.exports =
     someData: 'hey im andy'
     inputModel: 'write something'
     pins: [
-      { src: 'src one' },
+      { src: 'src jfdlskja ' },
       { src: 'src two' },
       { src: 'src three' }
     ]
@@ -47,7 +37,7 @@ module.exports =
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
-  color: #2c3e50
+  color: red
   margin-top: 60px
 
 </style>

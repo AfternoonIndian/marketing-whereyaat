@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+
+    <info-panel></info-panel>
     <sign-up-panel></sign-up-panel>
 
   </div>
@@ -10,6 +12,7 @@ module.exports =
 
   name: 'app'
   components:
+    InfoPanel: require './components/InfoPanel'
     SignUpPanel: require './components/SignUpPanel'
 
   data: ->
@@ -32,12 +35,14 @@ module.exports =
 </script>
 
 <style lang="sass">
+@import src/styles/main
+
 #app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  color: red
-  margin-top: 60px
+  +defaultType
+  +flexbox
+  +flex-direction(row)
+  +align-content(center)
+  height: 100vh
+  width: 100vw
 
 </style>

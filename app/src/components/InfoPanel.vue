@@ -1,6 +1,8 @@
 <template>
   <div id="info-panel">
 
+    <div id="logo">whereyaat</div>
+
     <div id="panel-controls">
       <div class="panel-button"
         v-for='(butt, index) in 2'
@@ -50,6 +52,11 @@ module.exports =
   height: 100%
   +align-items(center)
   +justify-content(center)
+
+  #logo
+    position: absolute
+    top: 20px
+    left: 20px
 
   #panel-controls
     position: absolute

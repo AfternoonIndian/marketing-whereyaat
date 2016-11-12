@@ -1,11 +1,17 @@
 Vuex = require('vuex')
 
 state =
-  stateVal: 'hello world'
+  emailInput: ''
+  emailArray: []
+  currentView: 'landing'
 
 mutations =
-  SET_STATE_VAL: (state, newVal)->
-    state.stateVal = newVal
+  SET_EMAIL_INPUT: (state, input)->
+    state.emailInput = input
+  SET_EMAIL_ARRAY: (state, emailObject)->
+    state.emailArray.push(emailObject)
+  SET_CURRENT_VIEW: (state, newView)->
+    state.currentView = newView
 
 module.exports = new Vuex.Store({
   state

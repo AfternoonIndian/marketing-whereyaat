@@ -3,7 +3,7 @@
 
     hey this is map rolly
     <!-- boners -->
-    <!-- <img src="images/logo.png"id="logo"/>
+  <!--  <img src="images/logo.png"id="logo"/>
     <img src="images/statue.png"id="statue"/>
 
     <div id="spinningMapContainer">

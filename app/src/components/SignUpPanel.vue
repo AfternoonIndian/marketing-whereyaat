@@ -17,7 +17,7 @@
 
       <div id="email-container">
         <div id="email-title">email</div>
-        <input @keyup.enter="saveMail" placeholder="enter your email here!" v-model="emailInput">
+        <input @keyup.enter="saveMail" placeholder="enter your email here!" @input="updateInput" :value="emailStore">
       </div>
 
       <!-- <div v-for="elem in emailArray">{{elem.email}}</div> -->
@@ -33,16 +33,22 @@ module.exports =
   name: 'signUpPanel'
 
   methods:
-    saveMail: ()->
-      this.emailArray.push({
-          email: this.emailInput
-        })
-      this.emailInput = ''
-      console.log this.emailArray
 
-  data: ()->
-    emailInput: ''
-    emailArray: []
+    saveMail: ()->
+      emailObject = { email: this.emailStore }
+
+      this.$store.commit('SET_EMAIL_ARRAY', emailObject)
+      
+      this.$store.commit('SET_EMAIL_INPUT', '')
+
+    updateInput: (e)->
+      console.log e.target.value
+      this.$store.commit('SET_EMAIL_INPUT', e.target.value)
+
+  computed:
+    emailStore: ()->
+      return this.$store.state.emailInput
+
 
 </script>
 

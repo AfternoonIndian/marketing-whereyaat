@@ -1,22 +1,17 @@
 <template>
   <div id="info-panel">
 
-    <div id="panel-controls">
-      <div class="panel-button"
-        v-for='(butt, index) in 2'
-        v-bind:class="{ active: currentComponent == index }"
-        @click="changeCurrentComponent(index)">
-      </div>
-    </div>
+    <div id="logo">whereyaat</div>
 
-    <div v-if="currentComponent == 0">
+    <side-buttons></side-buttons>
+
+    <div v-if="currentView == 'landing'">
       show landing component
     </div>
 
-    <div v-if="currentComponent == 1">
+    <div v-if="currentView == 'map'">
       <map-rolly></map-rolly>
     </div>
-
 
 
   </div>
@@ -28,14 +23,13 @@ module.exports =
   name: 'infoPanel'
   components:
     MapRolly: require './MapRolly'
+    SideButtons: require './SideButtons'
 
-  data: ->
-    currentComponent: 0
+  computed:
+    currentView: ()->
+      return this.$store.state.currentView
 
-  methods:
-    changeCurrentComponent: (index)->
-      @currentComponent = index
-      console.log @currentComponent
+
 
 </script>
 
@@ -50,40 +44,11 @@ module.exports =
   height: 100%
   +align-items(center)
   +justify-content(center)
+  +flex-direction(column)
 
-  #panel-controls
+  #logo
     position: absolute
-    right: 20px
-    +flexbox
-    +flex-direction(column)
-    .panel-button
-      background-color: white
-      display: block
-      width: 60px
-      height: 20px
-      +clickable
-      +flexbox
-      +align-items(center)
-      +translate3d(0,0,0)
-      +transition(.35s all ease)
-      &::before
-        display: block
-        content: ''
-        height: 3px
-        width: 100%
-        background-color: $black_two_quarters
-        +transition(.35s all ease)
-    .active
-      +translate3d(-20px,0,0)
-      +transition(.35s all ease)
-      cursor: default
-      &::before
-        content: ''
-        background-color: $black_three_quarters
-        +transition(.35s all ease)
-
-
-
-
+    top: 20px
+    left: 20px
 
 </style>
